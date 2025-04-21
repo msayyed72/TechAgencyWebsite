@@ -32,8 +32,8 @@ const categoryIconMap: Record<string, keyof typeof LucideIcons> = {
 };
 
 const Projects = () => {
-  // Fetch projects from the API
-  const { data: projects, isLoading, error } = useQuery({
+  // Fetch projects from the API with proper typing
+  const { data: projects, isLoading, error } = useQuery<Project[]>({
     queryKey: ['/api/projects'],
     retry: 1,
   });
@@ -74,7 +74,7 @@ const Projects = () => {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {projects?.map((project: Project, index: number) => {
+            {projects && projects.map((project, index) => {
               const Icon = getIconForProject(project);
               return (
                 <ProjectCard
