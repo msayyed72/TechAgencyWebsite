@@ -1,0 +1,76 @@
+Build a modern, premium, and responsive React.js website for a tech-based agency. The brand uses a black background with neon green (#A3FF12) and white as accent colors.
+
+The agency logo has been uploaded separately and should be placed prominently in the Hero section. The tagline is: “We Debug. You Dominate.”
+
+The website should include the following sections with smooth scroll navigation:
+
+1. **Hero Section**
+   - Full-screen dark background
+   - Centered logo (uploaded image)
+   - Tagline: "We Debug. You Dominate." in neon green
+   - CTA Button: "Explore Services"
+   - Background effect: subtle tech/cyber lines or particles (optional)
+
+2. **About Section**
+   - Title: "Our Story"
+   - Content: Founder rose from a slum, passionate about tech, started this agency to provide all-in-one digital solutions.
+   - Vision and mission displayed in separate cards
+   - Add motion effects to cards using Framer Motion
+
+3. **Services Section**
+   - Title: “What We Do”
+   - Grid layout with 5 cards:
+     - Website Development
+     - Branding & Identity
+     - Digital Marketing (SEO, Social Media)
+     - AI Tools & Automation
+     - Reels Editing & Creative Media
+   - Each card should have an icon, hover animation, and short description
+
+4. **Projects Section**
+   - Title: “Our Work”
+   - Grid layout with cards for each project:
+     - AI-Based Bar Bending Schedule (Python + React)
+     - AI Video Dubbing Tool (React + Whisper + TTS)
+     - AI Modi Lipi Translator (Python + ML)
+     - Turf Booking Admin Panel (React + Flutter)
+     - E-commerce Backend System (React + Node)
+     - The Essential India (Brand + Web + Social)
+     - Drake Theme 3D Portfolio Website (React + Three.js)
+   - Each card should show:
+     - Project Title
+     - Short description
+     - Tech stack used
+     - "View Demo" button (use placeholders for now)
+     - Animate on scroll using Framer Motion
+
+5. **Contact Section**
+   - Form with Name, Email, Service Needed, Message
+   - Socials: Instagram, WhatsApp buttons (icons)
+   - Submit button with neon green hover effect
+
+6. **Footer**
+   - Logo in footer (mini version)
+   - Quick nav links: Home, Services, Projects, Contact
+   - Social links (Icons)
+   - Copyright © Year + Agency name
+
+📁 **Tech Requirements**
+- Use **React.js**
+- Use **Tailwind CSS** for styling
+- Use **Framer Motion** for animations
+- Fully responsive (mobile + tablet + desktop)
+- Reusable components
+- Clean project structure:
+  - `/components` folder for each section
+  - `/assets` for images and icons
+  - `App.js` for routing and structure
+
+⚙️ **Optional Enhancements**
+- Add theme switch (light/dark) later
+- Add client testimonials section later
+- Add blog and dashboard in future phases
+
+🛠️ **Deployment Ready**
+- Prepare for deployment via Vercel or Netlify
+
