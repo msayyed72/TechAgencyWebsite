@@ -9,18 +9,35 @@ const Logo: React.FC<LogoProps> = ({ className = "" }) => {
     <svg
       width="100%"
       height="100%"
-      viewBox="0 0 300 300"
+      viewBox="0 0 300 240"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <rect width="300" height="300" rx="20" fill="black" />
-      <path d="M80 150L130 100H170L120 150L170 200H130L80 150Z" fill="white" />
-      <path d="M220 150L170 100H130L180 150L130 200H170L220 150Z" fill="white" />
-      <path d="M170 100H130V150H170V100Z" fill="#A3FF12" />
-      <path d="M170 150V200H130L170 150Z" fill="#A3FF12" />
-      <path d="M100 230C97.2386 230 95 227.761 95 225C95 222.239 97.2386 220 100 220H200C202.761 220 205 222.239 205 225C205 227.761 202.761 230 200 230H100Z" fill="white" />
-      <text x="150" y="275" textAnchor="middle" fill="#A3FF12" fontFamily="monospace" fontSize="14">We Debug. You Dominate.</text>
+      {/* Main laptop body (rounded rectangle) */}
+      <rect x="30" y="30" width="240" height="140" rx="10" stroke="white" strokeWidth="6" fill="black" />
+      
+      {/* Logo inside the laptop screen */}
+      <g transform="translate(70, 55) scale(0.8)">
+        {/* Left bracket */}
+        <path d="M30 60L60 30v60L30 60z" fill="white" />
+        
+        {/* Right bracket */}
+        <path d="M170 60L140 30v60L170 60z" fill="white" />
+        
+        {/* D letter (green) */}
+        <path d="M60 30h50v30h-50z" fill="#A3FF12" />
+        <path d="M110 60l-50 30 50-30z" fill="#A3FF12" />
+      </g>
+      
+      {/* Laptop bottom/keyboard part */}
+      <path d="M20 170l30 40h200l30-40H20z" stroke="white" strokeWidth="6" fill="black" />
+      
+      {/* Trackpad */}
+      <path d="M140 190a15 7 0 1 0 20 0a15 7 0 1 0 -20 0" stroke="white" strokeWidth="3" fill="none" />
+      
+      {/* Tagline */}
+      <text x="150" y="230" textAnchor="middle" fill="#A3FF12" fontFamily="monospace" fontWeight="bold" fontSize="16">We Debug. You Dominate.</text>
     </svg>
   );
 };
