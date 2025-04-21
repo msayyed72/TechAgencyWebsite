@@ -95,11 +95,13 @@ export class PostgresStorage implements IStorage {
   }
   
   async getProjects(params: { featured?: boolean, limit?: number } = {}): Promise<Project[]> {
-    let query = this.db.select().from(projects).orderBy(desc(projects.createdAt));
+    let query = this.db.select().from(projects);
     
     if (params.featured !== undefined) {
       query = query.where(eq(projects.featured, params.featured));
     }
+    
+    query = query.orderBy(desc(projects.createdAt));
     
     if (params.limit) {
       query = query.limit(params.limit);
@@ -138,11 +140,13 @@ export class PostgresStorage implements IStorage {
   }
   
   async getServices(params: { featured?: boolean } = {}): Promise<Service[]> {
-    let query = this.db.select().from(services).orderBy(services.orderIndex);
+    let query = this.db.select().from(services);
     
     if (params.featured !== undefined) {
       query = query.where(eq(services.featured, params.featured));
     }
+    
+    query = query.orderBy(services.orderIndex);
     
     return await query;
   }
@@ -172,11 +176,13 @@ export class PostgresStorage implements IStorage {
   }
   
   async getTestimonials(params: { featured?: boolean } = {}): Promise<Testimonial[]> {
-    let query = this.db.select().from(testimonials).orderBy(testimonials.orderIndex);
+    let query = this.db.select().from(testimonials);
     
     if (params.featured !== undefined) {
       query = query.where(eq(testimonials.featured, params.featured));
     }
+    
+    query = query.orderBy(testimonials.orderIndex);
     
     return await query;
   }
@@ -211,15 +217,23 @@ export class PostgresStorage implements IStorage {
   }
   
   async getBlogPosts(params: { published?: boolean, featured?: boolean, limit?: number } = {}): Promise<BlogPost[]> {
-    let query = this.db.select().from(blogPosts).orderBy(desc(blogPosts.createdAt));
+    let query = this.db.select().from(blogPosts);
+    
+    let conditions = [];
     
     if (params.published !== undefined) {
-      query = query.where(eq(blogPosts.published, params.published));
+      conditions.push(eq(blogPosts.published, params.published));
     }
     
     if (params.featured !== undefined) {
-      query = query.where(eq(blogPosts.featured, params.featured));
+      conditions.push(eq(blogPosts.featured, params.featured));
     }
+    
+    if (conditions.length > 0) {
+      query = query.where(and(...conditions));
+    }
+    
+    query = query.orderBy(desc(blogPosts.createdAt));
     
     if (params.limit) {
       query = query.limit(params.limit);
@@ -253,11 +267,13 @@ export class PostgresStorage implements IStorage {
   }
   
   async getContactSubmissions(params: { status?: string, limit?: number } = {}): Promise<ContactSubmission[]> {
-    let query = this.db.select().from(contactSubmissions).orderBy(desc(contactSubmissions.createdAt));
+    let query = this.db.select().from(contactSubmissions);
     
     if (params.status) {
       query = query.where(eq(contactSubmissions.status, params.status));
     }
+    
+    query = query.orderBy(desc(contactSubmissions.createdAt));
     
     if (params.limit) {
       query = query.limit(params.limit);
