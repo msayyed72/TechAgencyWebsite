@@ -79,7 +79,7 @@
   .gradient-border:hover::after {
     opacity: 1;
   }
-
+  
   /* 3D specific styles */
   .canvas3d-container {
     position: absolute;
@@ -90,7 +90,7 @@
     z-index: 1;
     pointer-events: none;
   }
-
+  
   .hero-canvas3d {
     position: absolute;
     top: 0;
@@ -99,85 +99,63 @@
     height: 100%;
     z-index: 0;
   }
-
+  
   .scene-overlay {
     position: relative;
     z-index: 5;
   }
-
+  
   .floating-3d-element {
     transform-style: preserve-3d;
     perspective: 1000px;
     transition: transform 0.5s ease;
   }
-
+  
   .floating-3d-element:hover {
     transform: translateY(-10px) rotateX(10deg) rotateY(10deg);
   }
-
+  
   /* 3D card effects */
   .card-3d {
     transform-style: preserve-3d;
     transition: all 0.3s ease;
-    background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(163, 255, 18, 0.1);
-    box-shadow: 0 0 20px rgba(163, 255, 18, 0.05);
   }
-
+  
   .card-3d:hover {
-    box-shadow: 
-      0 25px 50px -12px rgba(163, 255, 18, 0.25),
-      0 0 30px rgba(163, 255, 18, 0.1);
+    transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 25px 50px -12px rgba(163, 255, 18, 0.25);
   }
-
-  .card-3d::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      800px circle at var(--mouse-x) var(--mouse-y),
-      rgba(163, 255, 18, 0.1),
-      transparent 40%
-    );
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .card-3d:hover::before {
-    opacity: 1;
-  }
-
+  
   /* Animation keyframes */
   @keyframes pulse {
     0% { opacity: 0.1; }
     100% { opacity: 0.3; }
   }
-
+  
   @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
     100% { transform: translateY(0px); }
   }
-
+  
   @keyframes rotate3d {
     0% { transform: rotateX(0) rotateY(0); }
     50% { transform: rotateX(10deg) rotateY(10deg); }
     100% { transform: rotateX(0) rotateY(0); }
   }
-
+  
   .pulse-animation {
     animation: pulse 3s infinite alternate;
   }
-
+  
   .float-animation {
     animation: float 6s ease-in-out infinite;
   }
-
+  
   .rotate3d-animation {
     animation: rotate3d 8s ease-in-out infinite;
   }
-
+  
   /* 3D logo container */
   .logo-3d-container {
     perspective: 1000px;
